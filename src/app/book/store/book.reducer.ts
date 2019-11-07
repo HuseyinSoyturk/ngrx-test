@@ -16,14 +16,16 @@ const initialBookState: BookState = {
             publishYear: new Date('01/01/1983')
         }
     ],
-    mode: 'List'
+    mode: 'List',
+    nextIndex: 2
 }
 
 export type functionTypes = 'Add' | 'Edit' | 'List'
 
 export interface BookState {
     books: Book[],
-    mode: functionTypes
+    mode: functionTypes,
+    nextIndex: number
 }
 
 
@@ -35,7 +37,20 @@ export function bookReducer(state: BookState = initialBookState, action: BookAct
             let addedBooks: Book[] = [...state.books, action.payload]
             return {
                 ...state,
-                books: addedBooks
+                books: addedBooks,
+                nextIndex: state.nextIndex++
+            }
+
+        case BookActions.START_ADD_BOOK:
+            return {
+                ...state,
+                mode: 'Add'
+            }
+
+        case BookActions.STOP_ADD_BOOK:
+            return {
+                ...state,
+                mode: 'List'
             }
 
         case BookActions.DELETE_BOOK:

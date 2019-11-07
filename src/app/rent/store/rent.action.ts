@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Rent } from '../models/rent.model';
+import { Rent } from './rent.model';
 
 export const ActionTypes = {
     ADD_RENT: 'ADD_RENT',

@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Customer } from '../models/customer.model';
+import { Customer } from './customer.model';
 
 export const ActionTypes = {
     ADD_CUSTOMER: 'ADD_CUSTOMER',

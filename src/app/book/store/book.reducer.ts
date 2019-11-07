@@ -16,50 +16,56 @@ const initialBookState: BookState = {
             publishYear: new Date('01/01/1983')
         }
     ],
-    editingBook: undefined
+    mode: 'List'
 }
 
-interface BookState {
+export type functionTypes = 'Add' | 'Edit' | 'List'
+
+export interface BookState {
     books: Book[],
-    editingBook: Book
+    mode: functionTypes
 }
 
-export function bookReducer(state: BookState = initialBookState, action: BookActions.Actions) {
+
+
+export function bookReducer(state: BookState = initialBookState, action: BookActions.Actions): BookState {
 
     switch (action.type) {
         case BookActions.ADD_BOOK:
-            let books = [...state.books, action]
+            let addedBooks: Book[] = [...state.books, action.payload]
             return {
                 ...state,
-                books
-            }
-
-
-        case BookActions.UPDATE_BOOK:
-            let newBook
-            return {
-                ...state,
-
+                books: addedBooks
             }
 
         case BookActions.DELETE_BOOK:
-            let removedBooks = this.state.filter(obj => obj.id !== action.payload)
+            let removedBooks: Book[] = this.state.filter(obj => obj.id !== action.payload)
             return {
                 ...state,
-                removedBooks
+                books: removedBooks
             }
 
-        case BookActions.START_EDIT_BOOK:
-            return {
-                ...state,
-                editingBook: action.payload
-            }
+        // case BookActions.UPDATE_BOOK:
+        //     return {
+        //         ...state,
 
-        case BookActions.STOP_EDIT_BOOK:
-            return {
-                ...state,
-                editingBook: undefined
-            }
+        //     }
+
+        // case BookActions.START_EDIT_BOOK:
+        //     return {
+        //         ...state,
+        //         editingBook: action.payload.book,
+        //         editingBookIndex: action.payload.id,
+        //         mode: 'Edit'
+        //     }
+
+        // case BookActions.STOP_EDIT_BOOK:
+        //     return {
+        //         ...state,
+        //         editingBook: undefined,
+        //         editingBookIndex: -1,
+        //         mode: 'List'
+        //     }
 
         default:
             return {

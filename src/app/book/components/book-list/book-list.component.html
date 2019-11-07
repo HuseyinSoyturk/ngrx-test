@@ -1,0 +1,23 @@
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Author</th>
+            <th scope="col">Publish Year</th>
+            <th scope="col">Function</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <th scope="row">{{book.id}}</th>
+            <td>{{book.name}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.publishYear.getFullYear()}}</td>
+            <td>
+                <button class='btn' style="margin-left: 10px;">Update</button>
+                <button class='btn'>Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

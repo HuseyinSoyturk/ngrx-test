@@ -14,27 +14,28 @@ export class AddBook implements Action {
     constructor(public payload: Book) { }
 }
 
-export class UpdateBook implements Action {
-    readonly type = UPDATE_BOOK
-    constructor(public payload: Book) { }
-}
 
 export class DeleteBook implements Action {
     readonly type = DELETE_BOOK
     constructor(public payload: number) { }
 }
 
-export class StartEditBook implements Action {
-    readonly type = START_EDIT_BOOK
-    constructor(public payload: {
-        book: Book,
-        id: number
-    }) { }
+export class UpdateBook implements Action {
+    readonly type = UPDATE_BOOK
+    constructor(public payload: Book) { }
 }
 
-export class StopEditBook implements Action {
-    readonly type = STOP_EDIT_BOOK
-}
+// export class StartEditBook implements Action {
+//     readonly type = START_EDIT_BOOK
+//     constructor(public payload: {
+//         book: Book,
+//         id: number
+//     }) { }
+// }
+
+// export class StopEditBook implements Action {
+//     readonly type = STOP_EDIT_BOOK
+// }
 
 
-export type Actions = AddBook | UpdateBook | StartEditBook | StopEditBook | DeleteBook
+export type Actions = AddBook | UpdateBook

@@ -1,5 +1,5 @@
-import { Book } from './book.model';
-import { Customer } from './customer.model';
+import { Book } from '../../book/store/book.model';
+import { Customer } from '../../customer/store/customer.model';
 
 export interface Rent {
     id: number,

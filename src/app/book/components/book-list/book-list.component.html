@@ -16,8 +16,8 @@
             <td>{{book.author}}</td>
             <td>{{book.publishYear.getFullYear()}}</td>
             <td>
-                <button class='btn btn-success' style="margin-right: 10px;">Update</button>
-                <button class='btn btn-success'>Delete</button>
+                <button (click)="onClickEdit(book)" class='btn btn-success' style="margin-right: 10px;">Update</button>
+                <button (click)="onClickDelete(book)" class='btn btn-success'>Delete</button>
             </td>
         </tr>
     </tbody>

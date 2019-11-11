@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import { Book } from '../../store/book.model';
-import { StartAddBook } from '../../store/book.action';
+import { StartAddBook, DeleteBook, UpdateBook, StartEditBook } from '../../store/book.action';
 
 @Component({
   selector: 'app-book-list',
@@ -21,8 +21,16 @@ export class BookListComponent implements OnInit {
     })
   }
 
-  onClickAdd() {
+  onClickAdd(): void {
     this.store.dispatch(new StartAddBook())
+  }
+
+  onClickEdit(book: Book): void {
+    this.store.dispatch(new StartEditBook(book))
+  }
+
+  onClickDelete(book: Book): void {
+    this.store.dispatch(new DeleteBook(book.id))
   }
 
 }

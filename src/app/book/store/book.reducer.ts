@@ -17,7 +17,8 @@ const initialBookState: BookState = {
         }
     ],
     mode: 'List',
-    nextIndex: 2
+    nextIndex: 2,
+    editingBook: null
 }
 
 export type functionTypes = 'Add' | 'Edit' | 'List'
@@ -25,20 +26,21 @@ export type functionTypes = 'Add' | 'Edit' | 'List'
 export interface BookState {
     books: Book[],
     mode: functionTypes,
-    nextIndex: number
+    nextIndex: number,
+    editingBook: Book
 }
 
 
 
 export function bookReducer(state: BookState = initialBookState, action: BookActions.Actions): BookState {
-
     switch (action.type) {
         case BookActions.ADD_BOOK:
             let addedBooks: Book[] = [...state.books, action.payload]
             return {
                 ...state,
                 books: addedBooks,
-                nextIndex: state.nextIndex++
+                nextIndex: state.nextIndex++,
+                mode: 'List'
             }
 
         case BookActions.START_ADD_BOOK:
@@ -47,40 +49,36 @@ export function bookReducer(state: BookState = initialBookState, action: BookAct
                 mode: 'Add'
             }
 
-        case BookActions.STOP_ADD_BOOK:
+        case BookActions.START_EDIT_BOOK:
             return {
                 ...state,
+                mode: 'Edit',
+                editingBook: action.payload
+            }
+
+        case BookActions.UPDATE_BOOK:
+            const editedBooks = [
+                ...state.books
+            ]
+
+            let book = editedBooks.find(obj => obj.id === action.payload.id)
+
+            book.name = action.payload.name
+            book.author = action.payload.author
+            book.publishYear = action.payload.publishYear
+
+            return {
+                ...state,
+                books: editedBooks,
                 mode: 'List'
             }
 
         case BookActions.DELETE_BOOK:
-            let removedBooks: Book[] = this.state.filter(obj => obj.id !== action.payload)
+            let removedBooks: Book[] = state.books.filter(obj => obj.id !== action.payload)
             return {
                 ...state,
                 books: removedBooks
             }
-
-        // case BookActions.UPDATE_BOOK:
-        //     return {
-        //         ...state,
-
-        //     }
-
-        // case BookActions.START_EDIT_BOOK:
-        //     return {
-        //         ...state,
-        //         editingBook: action.payload.book,
-        //         editingBookIndex: action.payload.id,
-        //         mode: 'Edit'
-        //     }
-
-        // case BookActions.STOP_EDIT_BOOK:
-        //     return {
-        //         ...state,
-        //         editingBook: undefined,
-        //         editingBookIndex: -1,
-        //         mode: 'List'
-        //     }
 
         default:
             return {

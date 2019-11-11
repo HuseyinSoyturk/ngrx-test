@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from '../../store/book.model';
 import { AppState } from 'src/app/store/app.reducer';
 import { Store } from '@ngrx/store';
-import { AddBook, StopAddBook } from '../../store/book.action';
+import { AddBook } from '../../store/book.action';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -23,19 +23,17 @@ export class BookAddComponent implements OnInit {
   }
 
   onClickAdd(name, author, publishYear) {
-    const newBook: Book = {
+    const book: Book = {
       id: this.nextIndex,
       name,
       author,
-      publishYear
+      publishYear : new Date(publishYear)
     }
-    this.store.dispatch(new AddBook(newBook))
-  
+    this.store.dispatch(new AddBook(book))
   }
 
   ngOnDestroy(): void {
     this.subs.unsubscribe();
-    this.store.dispatch(new StopAddBook());
   }
 
 }

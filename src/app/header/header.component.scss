@@ -1,0 +1,12 @@
+.sections{
+    color:#fefefe;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 500px;
+    cursor: default;
+    .section:hover{
+        cursor: pointer;
+        color: aqua;    
+    }
+}

@@ -1,1 +1,17 @@
-<p>book-edit works!</p>
+<form class="form">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input [value]="this.editingBook.name" type="text" class="form-control" id="name" placeholder="Enter Name"
+            #name>
+    </div>
+    <div class="form-group">
+        <label for="author">Author</label>
+        <input [value]="this.editingBook.author" type="text" class="form-control" id="author" placeholder="Enter Author"
+            #author>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Publish Year</label>
+        <input [value]="this.editingBook.publishYear  | date:'yyyy-MM-dd'" type="date" class="form-control" id="year" #date>
+    </div>
+    <button (click)="onClickEdit(name.value , author.value , date.value)" class="btn btn-primary">Edit</button>
+</form>

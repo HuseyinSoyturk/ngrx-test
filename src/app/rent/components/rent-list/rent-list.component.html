@@ -1,0 +1,24 @@
+<button class="btn btn-primary" style="margin: 20px;" (click)="onClickAdd()">Rent a Book</button>
+<table style="margin: 10px;" class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Author</th>
+            <th scope="col">Publish Year</th>
+            <th scope="col">Function</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let rent of rents">
+            <th scope="row">{{book.id}}</th>
+            <td>{{book.name}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.publishYear.getFullYear()}}</td>
+            <td>
+                <button (click)="onClickEdit(book)" class='btn btn-success' style="margin-right: 10px;">Update</button>
+                <button (click)="onClickDelete(book)" class='btn btn-success'>Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -70,6 +70,7 @@ export function bookReducer(state: BookState = initialBookState, action: BookAct
             return {
                 ...state,
                 books: editedBooks,
+                editingBook: null,
                 mode: 'List'
             }
 

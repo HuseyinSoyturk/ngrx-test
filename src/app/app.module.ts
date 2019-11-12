@@ -13,11 +13,15 @@ import * as fromApp from './store/app.reducer';
 import { HeaderComponent } from './header/header.component';
 import { RootComponent } from './root/root.component';
 import { environment } from '../environments/environment';
+import { CustomerListComponent } from './customer/components/customer-list/customer-list.component';
+import { CustomerAddComponent } from './customer/components/customer-add/customer-add.component';
+import { CustomerEditComponent } from './customer/components/customer-edit/customer-edit.component';
+import { CustomerComponent } from './customer/customer.component';
 
 const appRoutes: Routes = [
   { path: 'book', component: BookComponent },
-  // { path: '', component:  },
-  // { path: 'heroes', component: HeroListComponent }
+  { path: 'customer', component:CustomerComponent  },
+  // { path: 'rent', component: RentComponent }
 ];
 
 @NgModule({
@@ -29,6 +33,10 @@ const appRoutes: Routes = [
     BookEditComponent,
     HeaderComponent,
     RootComponent,
+    CustomerListComponent,
+    CustomerAddComponent,
+    CustomerEditComponent,
+    CustomerComponent,
   ],
   imports: [
     BrowserModule,

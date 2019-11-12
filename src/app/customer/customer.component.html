@@ -1,0 +1,9 @@
+<div style="display:flex;flex-direction:row;">
+    <div style="width:50%;">
+        <app-customer-list></app-customer-list>
+    </div>
+    <div style="width:50%;">
+        <app-customer-add *ngIf="mode === 'Add'"></app-customer-add>
+        <app-customer-edit *ngIf="mode === 'Edit'"></app-customer-edit>
+    </div>
+</div>

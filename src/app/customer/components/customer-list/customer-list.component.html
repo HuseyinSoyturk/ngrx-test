@@ -1,0 +1,24 @@
+<button class="btn btn-primary" style="margin: 20px;" (click)="onClickAdd()">Add New Customer</button>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Tel</th>
+            <th scope="col">Function</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let customer of customers">
+            <th scope="row">{{customer.id}}</th>
+            <td>{{customer.name}}</td>
+            <td>{{customer.surname}}</td>
+            <td>{{customer.tel}}</td>
+            <td>
+                <button (click)="onClickEdit(customer)" class='btn btn-success' style="margin-right: 10px;">Update</button>
+                <button (click)="onClickDelete(customer)" class='btn btn-success'>Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

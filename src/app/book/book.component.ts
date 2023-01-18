@@ -16,7 +16,7 @@ export class BookComponent implements OnInit {
   ngOnInit() {
     this.store.select('bookState').subscribe(res => {
       this.mode = res.mode;
-    })
+    });
   }
 
 }

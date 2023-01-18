@@ -8,16 +8,16 @@ export const START_ADD_RENT = '[RENT] START ADD';
 export const START_EDIT_RENT = '[RENT] START EDIT';
 
 export class AddRent implements Action {
-    readonly type = ADD_RENT
+    readonly type = ADD_RENT;
     constructor(public payload: Rent) { }
 }
 
 export class EditRent implements Action {
-    readonly type = EDIT_RENT
+    readonly type = EDIT_RENT;
     constructor(public payload: Rent) { }
 }
 export class DeleteRent implements Action {
-    readonly type = DELETE_RENT
+    readonly type = DELETE_RENT;
     constructor(public payload: number) { }
 }
 
@@ -30,4 +30,4 @@ export class StartEditRent implements Action {
     constructor(public payload: Rent) { }
 }
 
-export type Actions = AddRent | EditRent | DeleteRent | StartAddRent | StartEditRent
+export type Actions = AddRent | EditRent | DeleteRent | StartAddRent | StartEditRent;

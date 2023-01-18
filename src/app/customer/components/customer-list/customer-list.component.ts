@@ -18,18 +18,18 @@ export class CustomerListComponent implements OnInit {
   ngOnInit() {
     this.store.select('customerState').subscribe((res): void => {
       this.customers = res.customers;
-    })
+    });
   }
 
   onClickAdd(): void {
-    this.store.dispatch(new StartAddCustomer())
+    this.store.dispatch(new StartAddCustomer());
   }
 
   onClickEdit(customer: Customer): void {
-    this.store.dispatch(new StartEditCustomer(customer))
+    this.store.dispatch(new StartEditCustomer(customer));
   }
 
   onClickDelete(customer: Customer): void {
-    this.store.dispatch(new DeleteCustomer(customer.id))
+    this.store.dispatch(new DeleteCustomer(customer.id));
   }
 }

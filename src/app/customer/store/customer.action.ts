@@ -8,27 +8,27 @@ export const START_ADD_CUSTOMER = '[CUSTOMER] START ADD';
 export const START_EDIT_CUSTOMER = '[CUSTOMER] START EDIT';
 
 export class AddCustomer implements Action {
-    readonly type = ADD_CUSTOMER
+    readonly type = ADD_CUSTOMER;
     constructor(public payload: Customer) { }
 }
 
 export class EditCustomer implements Action {
-    readonly type = EDIT_CUSTOMER
+    readonly type = EDIT_CUSTOMER;
     constructor(public payload: Customer) { }
 }
 
 export class DeleteCustomer implements Action {
-    readonly type = DELETE_CUSTOMER
+    readonly type = DELETE_CUSTOMER;
     constructor(public payload: number) { }
 }
 
 export class StartAddCustomer implements Action {
-    readonly type = START_ADD_CUSTOMER
+    readonly type = START_ADD_CUSTOMER;
 }
 
 export class StartEditCustomer implements Action {
-    readonly type = START_EDIT_CUSTOMER
+    readonly type = START_EDIT_CUSTOMER;
     constructor(public payload: Customer) { }
 }
 
-export type Actions = AddCustomer | EditCustomer | DeleteCustomer | StartAddCustomer | StartEditCustomer
+export type Actions = AddCustomer | EditCustomer | DeleteCustomer | StartAddCustomer | StartEditCustomer;

@@ -1,7 +1,7 @@
 import { ActionReducerMap } from '@ngrx/store';
 
-import * as fromBook from '../book/store/book.reducer'
-import * as fromCustomer from '../customer/store/customer.reducer'
+import * as fromBook from '../book/store/book.reducer';
+import * as fromCustomer from '../customer/store/customer.reducer';
 
 export interface AppState {
     bookState: fromBook.BookState;

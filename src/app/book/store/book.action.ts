@@ -10,27 +10,27 @@ export const START_EDIT_BOOK = '[BOOK] START EDIT';
 
 
 export class StartAddBook implements Action {
-    readonly type = START_ADD_BOOK
+    readonly type = START_ADD_BOOK;
 }
 
 export class AddBook implements Action {
-    readonly type = ADD_BOOK
+    readonly type = ADD_BOOK;
     constructor(public payload: Book) { }
 }
 
 export class StartEditBook implements Action {
-    readonly type = START_EDIT_BOOK
+    readonly type = START_EDIT_BOOK;
     constructor(public payload: Book) { }
 }
 
 export class DeleteBook implements Action {
-    readonly type = DELETE_BOOK
+    readonly type = DELETE_BOOK;
     constructor(public payload: number) { }
 }
 
 export class UpdateBook implements Action {
-    readonly type = UPDATE_BOOK
+    readonly type = UPDATE_BOOK;
     constructor(public payload: Book) { }
 }
 
-export type Actions = AddBook | UpdateBook | DeleteBook | StartAddBook | StartEditBook
+export type Actions = AddBook | UpdateBook | DeleteBook | StartAddBook | StartEditBook;

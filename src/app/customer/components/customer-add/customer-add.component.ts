@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
@@ -10,16 +10,16 @@ import { AddCustomer } from '../../store/customer.action';
   templateUrl: './customer-add.component.html',
   styleUrls: ['./customer-add.component.scss']
 })
-export class CustomerAddComponent implements OnInit {
-  subs: Subscription
-  nextIndex: number
+export class CustomerAddComponent implements OnInit, OnDestroy {
+  subs: Subscription;
+  nextIndex: number;
 
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
     this.subs = this.store.select('customerState').subscribe(res => {
       this.nextIndex = res.nextIndex;
-    })
+    });
   }
 
   onClickAdd(name, surname, tel) {
@@ -28,8 +28,8 @@ export class CustomerAddComponent implements OnInit {
       name,
       surname,
       tel
-    }
-    this.store.dispatch(new AddCustomer(customer))
+    };
+    this.store.dispatch(new AddCustomer(customer));
   }
 
   ngOnDestroy(): void {

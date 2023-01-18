@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Customer } from '../../store/customer.model';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -10,7 +10,7 @@ import { EditCustomer } from '../../store/customer.action';
   templateUrl: './customer-edit.component.html',
   styleUrls: ['./customer-edit.component.scss']
 })
-export class CustomerEditComponent implements OnInit {
+export class CustomerEditComponent implements OnInit, OnDestroy {
 
   editingCustomer: Customer;
   subs: Subscription;
@@ -19,22 +19,22 @@ export class CustomerEditComponent implements OnInit {
 
   ngOnInit() {
     this.subs = this.store.select('customerState').subscribe(res => {
-      this.editingCustomer = res.editingCustomer
-    })
+      this.editingCustomer = res.editingCustomer;
+    });
   }
 
   onClickEdit(name, surname, tel) {
-    let newCustomer = {
+    const newCustomer = {
       ...this.editingCustomer,
       name,
       surname,
       tel
-    }
-    this.store.dispatch(new EditCustomer(newCustomer))
+    };
+    this.store.dispatch(new EditCustomer(newCustomer));
   }
 
   ngOnDestroy() {
-    this.subs.unsubscribe()
+    this.subs.unsubscribe();
   }
 
 }

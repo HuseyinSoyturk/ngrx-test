@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { RootComponent } from './root/root.component';
 
-import { BookComponent } from './book/book.component'
+import { BookComponent } from './book/book.component';
 import { BookListComponent } from './book/components/book-list/book-list.component';
 import { BookAddComponent } from './book/components/book-add/book-add.component';
 import { BookEditComponent } from './book/components/book-edit/book-edit.component';
@@ -29,7 +29,7 @@ import { RentEditComponent } from './rent/components/rent-edit/rent-edit.compone
 
 const appRoutes: Routes = [
   { path: 'book', component: BookComponent },
-  { path: 'customer', component:CustomerComponent  },
+  { path: 'customer', component: CustomerComponent  },
   { path: 'rent', component: RentComponent }
 ];
 

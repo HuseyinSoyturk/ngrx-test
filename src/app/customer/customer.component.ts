@@ -16,7 +16,7 @@ export class CustomerComponent implements OnInit {
   ngOnInit() {
     this.store.select('customerState').subscribe(res => {
       this.mode = res.mode;
-    })
+    });
   }
 
 }

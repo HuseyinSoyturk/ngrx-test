@@ -18,19 +18,19 @@ export class BookListComponent implements OnInit {
   ngOnInit() {
     this.store.select('bookState').subscribe((res): void => {
       this.books = res.books;
-    })
+    });
   }
 
   onClickAdd(): void {
-    this.store.dispatch(new StartAddBook())
+    this.store.dispatch(new StartAddBook());
   }
 
   onClickEdit(book: Book): void {
-    this.store.dispatch(new StartEditBook(book))
+    this.store.dispatch(new StartEditBook(book));
   }
 
   onClickDelete(book: Book): void {
-    this.store.dispatch(new DeleteBook(book.id))
+    this.store.dispatch(new DeleteBook(book.id));
   }
 
 }

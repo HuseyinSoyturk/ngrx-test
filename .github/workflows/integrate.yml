@@ -8,8 +8,10 @@ jobs:
   test_zart_zurt_zirt:
     runs-on: ubuntu-latest
     steps:
-      -uses: actions/checkout@v2
-      -uses: actions/setup-node@v1
-      -run: npm ci
-      -run: npm lint
-      -run: npm run build
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm ci
+      - run: npm lint
+      - run: npm run build
